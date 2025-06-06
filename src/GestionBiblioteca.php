@@ -9,7 +9,12 @@ class GestionBiblioteca
         $partes = explode(' ', $cadena);
 
         $libro = $partes[1];
-        $cantidad = 1;
+        if (isset($partes[2])) {
+            $cantidad = $partes[2];
+        }
+        else{
+            $cantidad = 1;
+        }
 
         return "$libro x$cantidad";
     }
