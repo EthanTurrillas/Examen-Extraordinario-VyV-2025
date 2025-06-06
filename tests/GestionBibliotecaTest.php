@@ -31,4 +31,17 @@ class GestionBibliotecaTest extends TestCase
 
         $this->assertEquals($resultado, "dune x3");
     }
+
+    /**
+     * @test
+     */
+    public function SiNoHayLibroDevuelveError()
+    {
+        $gestionBiblioteca = new GestionBiblioteca();
+        $cadena = "prestar";
+
+        $resultado = $gestionBiblioteca->gestionPrestamos($cadena);
+
+        $this->assertEquals($resultado, "Error: No se ha especificado un libro para prestar.");
+    }
 }
