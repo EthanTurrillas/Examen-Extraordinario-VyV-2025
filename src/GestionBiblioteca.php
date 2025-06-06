@@ -8,6 +8,10 @@ class GestionBiblioteca
     {
         $partes = explode(' ', $cadena);
 
+        if (count($partes) <= 1) {
+            return "Error: No se ha especificado un libro para prestar.";
+        }
+
         $libro = $partes[1];
         if (isset($partes[2])) {
             $cantidad = $partes[2];
