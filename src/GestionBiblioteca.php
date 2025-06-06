@@ -6,6 +6,7 @@ class GestionBiblioteca
 {
     public function gestionPrestamos($cadena)
     {
+        $cadena = strtolower($cadena);
         $partes = explode(' ', $cadena);
         if ($partes[0] == 'prestar') {
             return $this->prestamo($partes);
