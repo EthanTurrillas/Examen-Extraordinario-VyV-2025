@@ -44,4 +44,16 @@ class GestionBibliotecaTest extends TestCase
 
         $this->assertEquals($resultado, "Error: No se ha especificado un libro para prestar.");
     }
+    /**
+     * @test
+     */
+    public function SiNoSeIndicaAccionDevuelveError()
+    {
+        $gestionBiblioteca = new GestionBiblioteca();
+        $cadena = "dune";
+
+        $resultado = $gestionBiblioteca->gestionPrestamos($cadena);
+
+        $this->assertEquals($resultado, "Error: Comando no reconocido.");
+    }
 }
