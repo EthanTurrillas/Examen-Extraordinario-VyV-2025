@@ -19,4 +19,16 @@ class GestionBibliotecaTest extends TestCase
 
         $this->assertEquals($resultado, "dune x1");
     }
+    /**
+     * @test
+     */
+    public function DadoUnPrestamoConCantidadDevuelveNombreYCantidad()
+    {
+        $gestionBiblioteca = new GestionBiblioteca();
+        $cadena = "prestar dune 3";
+
+        $resultado = $gestionBiblioteca->gestionPrestamos($cadena);
+
+        $this->assertEquals($resultado, "dune x3");
+    }
 }
