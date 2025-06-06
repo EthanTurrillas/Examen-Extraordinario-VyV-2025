@@ -68,4 +68,18 @@ class GestionBibliotecaTest extends TestCase
 
         $this->assertEquals($resultado, "dune x1");
     }
+    /**
+     * @test
+     */
+    public function SiHayLibrosYaPrestadosSeDevuelvenTodos()
+    {
+        $gestionBiblioteca = new GestionBiblioteca();
+        $cadena1 = "prestar dune 2";
+        $cadena2 = "prestar fundacion 2";
+
+        $gestionBiblioteca->gestionPrestamos($cadena1);
+        $resultado = $gestionBiblioteca->gestionPrestamos($cadena2);
+
+        $this->assertEquals($resultado, "dune x2, fundacion x2");
+    }
 }
