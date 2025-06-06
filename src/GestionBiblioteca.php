@@ -4,14 +4,19 @@ namespace Deg540\DockerPHPBoilerplate;
 
 class GestionBiblioteca
 {
+    private $libros = [];
     public function gestionPrestamos($cadena)
     {
         $cadena = strtolower($cadena);
         $partes = explode(' ', $cadena);
         if ($partes[0] == 'prestar') {
-            return $this->prestamo($partes);
+            $this->libros[] = $this->prestamo($partes);
         }
-        return "Error: Comando no reconocido.";
+        else
+        {
+            return "Error: Comando no reconocido.";
+        }
+        return $this->devolverLibros($this->libros);
     }
 
     private function prestamo($partes)
@@ -29,5 +34,13 @@ class GestionBiblioteca
         }
 
         return "$libro x$cantidad";
+    }
+
+    private function devolverLibros(array $libros)
+    {
+        if (empty($libros)) {
+            return "Lista de libros vacía.";
+        }
+        return implode(', ', $libros);
     }
 }
