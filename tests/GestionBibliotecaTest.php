@@ -56,4 +56,16 @@ class GestionBibliotecaTest extends TestCase
 
         $this->assertEquals($resultado, "Error: Comando no reconocido.");
     }
+    /**
+     * @test
+     */
+    public function NoSeDistingueEntreMayusculasYMinusculas()
+    {
+        $gestionBiblioteca = new GestionBiblioteca();
+        $cadena = "Prestar Dune";
+
+        $resultado = $gestionBiblioteca->gestionPrestamos($cadena);
+
+        $this->assertEquals($resultado, "dune x1");
+    }
 }
