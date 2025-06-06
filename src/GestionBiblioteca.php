@@ -12,6 +12,9 @@ class GestionBiblioteca
         if ($partes[0] == 'prestar') {
             $this->libros[] = $this->prestamo($partes);
         }
+        elseif ($partes[0] == 'devolver') {
+            $this->devolucion($partes);
+        }
         elseif ($partes[0] == 'limpiar') {
             $this->libros = [];
             return "";
@@ -42,7 +45,7 @@ class GestionBiblioteca
     private function devolverLibros(array $libros)
     {
         if (empty($libros)) {
-            return "Lista de libros vacía.";
+            return "";
         }
         return implode(', ', $libros);
     }
@@ -56,5 +59,20 @@ class GestionBiblioteca
             }
         }
         return false;
+    }
+
+    private function devolucion($partes)
+    {
+        $libro = $partes[1];
+        $this->eliminarLibro($libro);
+    }
+
+    private function eliminarLibro(mixed $libro)
+    {
+        foreach ($this->libros as $key => $prestado) {
+            if (str_contains($prestado, $libro)) {
+                unset($this->libros[$key]);
+            }
+        }
     }
 }

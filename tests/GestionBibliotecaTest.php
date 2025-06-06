@@ -111,4 +111,21 @@ class GestionBibliotecaTest extends TestCase
 
         $this->assertEquals($resultado, "");
     }
+
+    /**
+     * @test
+     */
+    public function AlDevolverUnLibroSeEliminaDelRegistro()
+    {
+        $gestionBiblioteca = new GestionBiblioteca();
+        $cadena1 = "prestar dune 2";
+        $cadena2 = "prestar fundacion 2";
+        $cadena3 = "devolver dune 2";
+
+        $gestionBiblioteca->gestionPrestamos($cadena1);
+        $gestionBiblioteca->gestionPrestamos($cadena2);
+        $resultado = $gestionBiblioteca->gestionPrestamos($cadena3);
+
+        $this->assertEquals($resultado, "fundacion x2");
+    }
 }
