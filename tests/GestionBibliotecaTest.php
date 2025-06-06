@@ -96,4 +96,19 @@ class GestionBibliotecaTest extends TestCase
 
         $this->assertEquals($resultado, "dune x4");
     }
+
+    /**
+     * @test
+     */
+    public function ParaComandoLimpiarDevuelveStringVacio()
+    {
+        $gestionBiblioteca = new GestionBiblioteca();
+        $cadena1 = "prestar dune";
+        $cadena2 = "limpiar";
+
+        $gestionBiblioteca->gestionPrestamos($cadena1);
+        $resultado = $gestionBiblioteca->gestionPrestamos($cadena2);
+
+        $this->assertEquals($resultado, "");
+    }
 }

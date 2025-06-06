@@ -12,6 +12,10 @@ class GestionBiblioteca
         if ($partes[0] == 'prestar') {
             $this->libros[] = $this->prestamo($partes);
         }
+        elseif ($partes[0] == 'limpiar') {
+            $this->libros = [];
+            return "";
+        }
         else
         {
             return "Error: Comando no reconocido.";
@@ -24,7 +28,6 @@ class GestionBiblioteca
         if (count($partes) <= 1) {
             return "Error: No se ha especificado un libro para prestar.";
         }
-
         $libro = $partes[1];
         if (isset($partes[2])) {
             $cantidad = $partes[2];
@@ -42,5 +45,16 @@ class GestionBiblioteca
             return "Lista de libros vacía.";
         }
         return implode(', ', $libros);
+    }
+
+    private function comprobarLibroPrestado($partes)
+    {
+        $libro = $partes[1];
+        foreach ($this->libros as $prestado) {
+            if (str_contains($prestado, $libro)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
