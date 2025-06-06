@@ -1,1 +1,1 @@
-{"version":1,"defects":{"Deg540\\DockerPHPBoilerplate\\Test\\GestionBibliotecaTest::DadoUnPrestamoDevuelveNombreYCantidad":4},"times":{"tests\\ExamenTest::test":0.06,"Deg540\\DockerPHPBoilerplate\\Test\\GestionBibliotecaTest::DadoUnPrestamoDevuelveNombreYCantidad":0.277}}
+{"version":1,"defects":{"Deg540\\DockerPHPBoilerplate\\Test\\GestionBibliotecaTest::DadoUnPrestamoDevuelveNombreYCantidad":4},"times":{"tests\\ExamenTest::test":0.06,"Deg540\\DockerPHPBoilerplate\\Test\\GestionBibliotecaTest::DadoUnPrestamoDevuelveNombreYCantidad":0.059}}

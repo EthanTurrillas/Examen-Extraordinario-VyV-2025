@@ -13,9 +13,9 @@ class GestionBibliotecaTest extends TestCase
     public function DadoUnPrestamoDevuelveNombreYCantidad()
     {
         $gestionBiblioteca = new GestionBiblioteca();
-        $string = "prestar dune";
+        $cadena = "prestar dune";
 
-        $resultado = $gestionBiblioteca->prestamo($string);
+        $resultado = $gestionBiblioteca->gestionPrestamos($cadena);
 
         $this->assertEquals($resultado, "dune x1");
     }
