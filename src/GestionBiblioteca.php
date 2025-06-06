@@ -13,6 +13,9 @@ class GestionBiblioteca
             $this->libros[] = $this->prestamo($partes);
         }
         elseif ($partes[0] == 'devolver') {
+            if (!$this->comprobarLibroPrestado($partes)) {
+                return "El libro indicado no está en préstamo";
+            }
             $this->devolucion($partes);
         }
         elseif ($partes[0] == 'limpiar') {
@@ -63,7 +66,11 @@ class GestionBiblioteca
 
     private function devolucion($partes)
     {
+        if (count($partes) <= 1) {
+            return "Error: No se ha especificado un libro para devolver.";
+        }
         $libro = $partes[1];
+
         $this->eliminarLibro($libro);
     }
 

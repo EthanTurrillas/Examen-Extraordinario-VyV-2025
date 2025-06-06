@@ -128,4 +128,19 @@ class GestionBibliotecaTest extends TestCase
 
         $this->assertEquals($resultado, "fundacion x2");
     }
+
+    /**
+     * @test
+     */
+    public function AlDevolverUnLibroQueNoEstaPrestadoDevuelveError()
+    {
+        $gestionBiblioteca = new GestionBiblioteca();
+        $cadena1 = "prestar dune 2";
+        $cadena2 = "devolver fundacion 2";
+
+        $gestionBiblioteca->gestionPrestamos($cadena1);
+        $resultado = $gestionBiblioteca->gestionPrestamos($cadena2);
+
+        $this->assertEquals($resultado, "El libro indicado no está en préstamo");
+    }
 }
